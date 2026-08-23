@@ -14,11 +14,16 @@ export default function App() {
     },
   });
 
+  const submitForm = (values: typeof form.values) => {
+    console.log(values)
+    form.reset()
+  }
+
   return (
     <>
       <MantineProvider>
         <p>Does anything appear here?</p>
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
+        <form onSubmit={form.onSubmit(submitForm)}>
           <TextInput
             withAsterisk
             label="Composer"
